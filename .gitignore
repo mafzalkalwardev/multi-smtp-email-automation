@@ -1,0 +1,9 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+recipients.xlsx
+senders.csv
+sent_log.csv
+recipients_chunk_*.csv
