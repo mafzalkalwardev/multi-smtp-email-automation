@@ -32,6 +32,10 @@ The system distributes recipients evenly across sender accounts, launches parall
 
 \## Screenshots
 
+## Screenshots
+
+![Application screenshot](docs/screenshots/app.png)
+
 ## Features
 
 \- Multi-account SMTP email sending
