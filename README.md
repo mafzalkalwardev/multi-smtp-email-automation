@@ -48,7 +48,11 @@ The system distributes recipients evenly across sender accounts, launches parall
 
 
 
-\## Features
+\## Screenshots
+
+![multi-smtp-email-automation dashboard](docs/screenshots/app.png)
+
+## Features
 
 
 
