@@ -17,19 +17,20 @@ import smtplib
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT_SSL = 465
 CONNECTION_TIMEOUT = 15
+CONTACT_PHONE = "(512) 761-6455"
 
 # ===================== TEMPLATES =====================
 SUBJECT_TEMPLATES = [
-    "Available Loads – Let's Work Together",
-    "Steady Freight – Let's Keep Your Trucks Moving",
-    "Freight Opportunities in {state} – Let's Connect",
-    "Let's Keep Your Fleet Busy – Freight Available Now",
-    "Dispatch Support for Your Fleet – Let's Talk Loads",
-    "Open Lanes in {state} – Let's Fill Your Schedule",
-    "Freight Dispatch Opportunities – Let's Build Together",
-    "Let's Maximize Your Miles – Freight Available in {state}",
-    "Ready to Dispatch – Let's Get Your Trucks Moving",
-    "Let's Partner Up – Freight Opportunities in {state}"
+    "Available Loads - Let's Work Together",
+    "Steady Freight - Let's Keep Your Trucks Moving",
+    "Freight Opportunities in {state} - Let's Connect",
+    "Let's Keep Your Fleet Busy - Freight Available Now",
+    "Dispatch Support for Your Fleet - Let's Talk Loads",
+    "Open Lanes in {state} - Let's Fill Your Schedule",
+    "Freight Dispatch Opportunities - Let's Build Together",
+    "Let's Maximize Your Miles - Freight Available in {state}",
+    "Ready to Dispatch - Let's Get Your Trucks Moving",
+    "Let's Partner Up - Freight Opportunities in {state}"
 ]
 
 BODY_TEMPLATES = [
@@ -46,14 +47,14 @@ Looking forward to working with you!
 Best regards,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
 
 I'm reaching out to connect with dependable carriers who are ready for consistent freight opportunities. We're currently dispatching loads in {state}, and I'd love to help keep your trucks running profitably.
 
-If you're open to new lanes or want to maximize your current routes, send me your MC number and ZIP code — I'll match you with the best loads available.
+If you're open to new lanes or want to maximize your current routes, send me your MC number and ZIP code - I'll match you with the best loads available.
 
 Let's build something solid together.
 
@@ -61,7 +62,7 @@ Best regards,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
@@ -76,7 +77,7 @@ Best,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
@@ -91,7 +92,7 @@ Best regards,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
@@ -106,7 +107,7 @@ Best,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
@@ -121,7 +122,7 @@ Best regards,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
@@ -136,7 +137,7 @@ Best,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
@@ -151,7 +152,7 @@ Best regards,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
@@ -166,7 +167,7 @@ Best,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """,
     """Hi {Name},
@@ -181,7 +182,7 @@ Best regards,
 {SENDER_NAME}
 INDUS TRANSPORTS LLC
 
-(785 572-4805)
+{CONTACT_PHONE}
 {SENDER_EMAIL}
 """
 ]
@@ -269,10 +270,10 @@ class SmtpClient:
         try:
             srv = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT_SSL, timeout=CONNECTION_TIMEOUT)
             srv.login(self.email, self.app_password)
-            print(f"✅ SMTP login successful: {self.email}")
+            print(f"[OK] SMTP login successful: {self.email}")
             return srv
         except Exception as e:
-            print(f"❌ SMTP login failed for {self.email}: {e}")
+            print(f"[ERROR] SMTP login failed for {self.email}: {e}")
             raise
 
     def send_message(self, msg: EmailMessage):
@@ -283,7 +284,7 @@ class SmtpClient:
             self.server.send_message(msg)
             return True
         except Exception as e:
-            print(f"⚠️ Send failed for {self.email}: {e}")
+            print(f"[WARN] Send failed for {self.email}: {e}")
             try:
                 self.server.quit()
             except:
@@ -316,13 +317,14 @@ def build_message(sender_name: str, sender_email: str, recipient_email: str, sub
         state=state,
         SENDER_NAME=sender_name,
         SENDER_EMAIL=sender_email,
+        CONTACT_PHONE=CONTACT_PHONE,
     )
 
     msg = EmailMessage()
     msg["From"] = f"{sender_name} <{sender_email}>"
     msg["To"] = recipient_email
     msg["Subject"] = subject
-    msg.set_content(body)
+    msg.set_content(body, charset="us-ascii", cte="7bit")
     return msg
 
 def warm_up_account(smtp_client, sender_email, sender_name):
@@ -334,12 +336,12 @@ def warm_up_account(smtp_client, sender_email, sender_name):
         msg.set_content("This is a test email to warm up your account before sending bulk emails.")
         
         if smtp_client.send_message(msg):
-            print(f"✅ Warm-up email sent successfully for {sender_email}")
+            print(f"[OK] Warm-up email sent successfully for {sender_email}")
             time.sleep(random.uniform(30, 60))
             return True
         return False
     except Exception as e:
-        print(f"❌ Warm-up failed for {sender_email}: {e}")
+        print(f"[ERROR] Warm-up failed for {sender_email}: {e}")
         return False
 
 def main():
@@ -368,7 +370,7 @@ def main():
 
     # Load already sent
     already_sent = load_already_sent(args.log)
-    print(f"📊 Already sent: {len(already_sent)} emails")
+    print(f"[INFO] Already sent: {len(already_sent)} emails")
 
     # Filter out already sent
     recipients = recipients[~recipients["Email"].isin(already_sent)]
@@ -376,7 +378,7 @@ def main():
     if args.limit and args.limit > 0:
         recipients = recipients.head(args.limit)
     
-    print(f"📧 Emails to send: {len(recipients)}")
+    print(f"[INFO] Emails to send: {len(recipients)}")
     
     if len(recipients) == 0:
         print("No recipients to send to")
@@ -414,17 +416,17 @@ def main():
             if success:
                 logger.log(args.email, recipient, subject, "sent", "")
                 sent_count += 1
-                print(f"✅ Sent {sent_count}/{len(recipients)} to {recipient}")
+                print(f"[OK] Sent {sent_count}/{len(recipients)} to {recipient}")
             else:
                 logger.log(args.email, recipient, subject, "fail", "All retries failed")
-                print(f"❌ Failed to send to {recipient}")
+                print(f"[ERROR] Failed to send to {recipient}")
 
             # Delay between sends
             delay = random.uniform(args.min_delay, args.max_delay)
             time.sleep(delay)
 
             if sent_count >= args.max_per_sender:
-                print(f"📭 Reached max per sender limit: {args.max_per_sender}")
+                print(f"[INFO] Reached max per sender limit: {args.max_per_sender}")
                 break
 
     except KeyboardInterrupt:
@@ -433,7 +435,8 @@ def main():
         print(f"Unexpected error: {e}")
     finally:
         smtp.close()
-        print(f"🎯 Finished! Sent {sent_count} emails from {args.email}")
+        print(f"[DONE] Finished! Sent {sent_count} emails from {args.email}")
 
 if __name__ == "__main__":
     main()
+

@@ -66,7 +66,7 @@ def main():
     parser.add_argument("--max-per-sender", type=int, default=450)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument("--limit", type=int, default=None, help="Optional global cap")
-    parser.add_argument("--start-delay", type=int, default=30, help="Delay between starting terminals (seconds)")
+    parser.add_argument("--start-delay", type=int, default=0, help="Delay between starting terminals (seconds)")
     
     args = parser.parse_args()
 
@@ -163,7 +163,7 @@ def main():
             print(f"✅ Launched sender {i+1}: {email}")
             
             # Delay between launches
-            if i < len(senders) - 1:
+            if args.start_delay > 0 and i < len(senders) - 1:
                 time.sleep(args.start_delay)
                 
         except Exception as e:
