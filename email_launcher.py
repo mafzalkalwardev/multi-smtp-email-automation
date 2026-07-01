@@ -56,6 +56,9 @@ def save_recipients_chunk(recipients: pd.DataFrame, chunk_index: int) -> str:
     recipients.to_csv(filename, index=False)
     return filename
 
+    from indus_license_gate import require_license
+    require_license()
+
 def main():
     parser = argparse.ArgumentParser(description="Launch multiple terminal email senders")
     parser.add_argument("--recipients", default="recipients.xlsx", help="Path to recipients file")
