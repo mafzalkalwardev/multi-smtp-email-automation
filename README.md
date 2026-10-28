@@ -1,40 +1,70 @@
 <div align="center">
 
-# 🚀 Multi SMTP Email Automation
+# Multi-SMTP Email Automation
 
-**A Python-based multi-account SMTP email automation system with parallel sender launching, recipient distribution, retries, logging, and randomized email templates.**
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=28&duration=2800&pause=700&color=EA4335&center=true&vCenter=true&width=900&lines=Multi-Account+SMTP+Automation;Parallel+Sender+Launching;Retry+%2B+Logging+%2B+Templates;Python+outreach+engine" alt="Typing SVG" />
 
-Documented · MIT licensed · Maintained
+<p>
+  <img src="https://komarev.com/ghpvc/?username=mafzalkalwardev&label=Project%20Views&color=ea4335&style=for-the-badge" alt="Project views" />
+  <img src="https://img.shields.io/github/stars/mafzalkalwardev/multi-smtp-email-automation?style=for-the-badge&color=22c55e" alt="GitHub stars" />
+  <img src="https://img.shields.io/github/forks/mafzalkalwardev/multi-smtp-email-automation?style=for-the-badge&color=f59e0b" alt="GitHub forks" />
+  <img src="https://img.shields.io/github/license/mafzalkalwardev/multi-smtp-email-automation?style=for-the-badge&color=64748b" alt="License" />
+</p>
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
+<p>
+  <img src="https://skillicons.dev/icons?i=python" alt="Skill icons" />
+</p>
+
+<p>
+  <strong>Python multi-account SMTP automation with parallel senders, recipient distribution, retries, logging, and randomized templates.</strong>
+</p>
 
 </div>
 
 ---
 
-## 🐍 Contribution graph
+## Trophy Cards
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mafzalkalwardev/multi-smtp-email-automation/output/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mafzalkalwardev/multi-smtp-email-automation/output/snake.svg" />
-  <img alt="Contribution snake" src="https://raw.githubusercontent.com/mafzalkalwardev/multi-smtp-email-automation/output/snake.svg" />
-</picture>
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=mafzalkalwardev&theme=algolia&no-frame=true&no-bg=true&margin-w=12&margin-h=12&column=4" alt="GitHub trophy cards" />
+</div>
 
 ---
 
-\# Multi SMTP Email Automation
+## Stats Cards
 
-A Python-based multi-account SMTP email automation system designed for bulk email dispatching using multiple sender accounts simultaneously.
+<div align="center">
+  <img height="165" src="https://github-readme-stats-sigma-five.vercel.app/api?username=mafzalkalwardev&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" alt="GitHub stats" />
+  <img height="165" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=mafzalkalwardev&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
+</div>
 
-The system distributes recipients evenly across sender accounts, launches parallel email sender terminals, supports retries, logging, randomized templates, delays, and Excel/CSV recipient management.
+---
 
-\## Screenshots
+## Activity Graph
 
-## Screenshots
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mafzalkalwardev&theme=react-dark&hide_border=true&area=true" alt="GitHub activity graph" />
+</div>
 
-![Application screenshot](docs/screenshots/app.png)
+---
+
+## Contribution Snake
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mafzalkalwardev/google-voice-dispatch-agent/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mafzalkalwardev/google-voice-dispatch-agent/output/github-contribution-grid-snake.svg">
+    <img alt="Contribution snake" src="https://raw.githubusercontent.com/mafzalkalwardev/google-voice-dispatch-agent/output/github-contribution-grid-snake.svg">
+  </picture>
+</div>
+
+---
+
+## SEO Keywords
+
+`SMTP automation` `multi account email` `Python outreach`
+
+---
 
 ## Features
 
