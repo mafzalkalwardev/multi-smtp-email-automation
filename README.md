@@ -29,167 +29,128 @@
 
 ## Features
 
-\- Multi-account SMTP email sending
+- Multi-account SMTP email sending
+- Parallel sender launching
+- Recipient chunk distribution
+- Gmail App Password support
+- Excel and CSV support
+- Retry failed emails
+- Randomized subject/body templates
+- Delay handling to reduce spam detection
+- Email validation
+- Logging system
+- Automatic sender warm-up
+- Separate sender terminals
+- Bulk email automation
 
-\- Parallel sender launching
+## Tech Stack
 
-\- Recipient chunk distribution
+- Python
+- Pandas
+- SMTP
+- OpenPyXL
+- CSV
+- Threading
+- Subprocess Automation
 
-\- Gmail App Password support
-
-\- Excel and CSV support
-
-\- Retry failed emails
-
-\- Randomized subject/body templates
-
-\- Delay handling to reduce spam detection
-
-\- Email validation
-
-\- Logging system
-
-\- Automatic sender warm-up
-
-\- Separate sender terminals
-
-\- Bulk email automation
-
-\## Tech Stack
-
-\- Python
-
-\- Pandas
-
-\- SMTP
-
-\- OpenPyXL
-
-\- CSV
-
-\- Threading
-
-\- Subprocess Automation
-
-\## Project Structure
+## Project Structure
 
 ```text
-
 multi-smtp-email-automation/
 
 │
-
-├── email\_launcher.py
-
-├── email\_sender.py
-
+├── email_launcher.py
+├── email_sender.py
 ├── recipients.xlsx
-
 ├── senders.csv
-
 ├── run.cmd
-
 ├── README.md
-
 └── .gitignore
-
 ```
 
-\## File Details
+## File Details
 
-\### recipients.xlsx
+### recipients.xlsx
 
 Contains recipient information.
 
 Required columns:
 
 | Email | Name | State |
-
 |------|------|-------|
 
-\---
+---
 
-\### senders.csv
+### senders.csv
 
 Contains sender accounts.
 
 Required columns:
 
 | Email | AppPassword | Name |
-
 |------|-------------|------|
 
-\---
+---
 
-\## Installation
+## Installation
 
 Install required packages:
 
 ```bash
-
 pip install pandas openpyxl
-
 ```
 
-\## How to Run
+## How to Run
 
 Run launcher:
 
 ```bash
-
-python email\_launcher.py
-
+python email_launcher.py
 ```
 
 OR
 
 ```bash
-
 run.cmd
-
 ```
 
-\## Features Overview
+## Features Overview
 
-\### Multi Sender Distribution
+### Multi Sender Distribution
 
 Recipients are automatically divided equally among all sender accounts.
 
-\### Randomized Templates
+### Randomized Templates
 
 Subjects and email bodies are randomized to reduce spam detection risk.
 
-\### Logging System
+### Logging System
 
 All sent emails are logged inside:
 
 ```text
-
-sent\_log.csv
-
+sent_log.csv
 ```
 
-\### Retry System
+### Retry System
 
 Failed emails automatically retry multiple times.
 
-\### Warm-Up Feature
+### Warm-Up Feature
 
 Each sender account sends a warm-up email before bulk sending.
 
-\## Security Note
+## Security Note
 
 Do NOT upload:
 
-\- Gmail app passwords
-
-\- recipient lists
-
-\- sender credentials
+- Gmail app passwords
+- recipient lists
+- sender credentials
 
 Keep sensitive files private or use environment variables.
 
-\## Author
+## Author
 
 Muhammad Afzal Kalwar
 
